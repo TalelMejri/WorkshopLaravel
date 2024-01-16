@@ -18,7 +18,7 @@ class TodoFactory extends Factory
     {
         return [
             "title"=>$this->faker->sentence(),
-            "description"=>$this->faker->text()
+            "description"=>$this->faker->text(),
         ];
     }
 }
