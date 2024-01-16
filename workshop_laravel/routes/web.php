@@ -17,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 // Routes : POST,GET,PUT,DELETE
 
 Route::get('/', [TodosController::class,'index']);
+Route::get('/getByid/{id}', [TodosController::class,'getTodoById'])->name("findbyid");
+Route::delete('/deletebyid/{id}', [TodosController::class,'deleteTodo'])->name("deleteTodo");
+Route::get('/ShowFormulaire', [TodosController::class,'ShowFormulaire'])->name("ShowFormulaire");
+Route::post('/addTodo', [TodosController::class,'AddTodo'])->name("AddTodo");
+Route::get('/ShowUpdateForm/{id}', [TodosController::class,'ShowUpdateForm'])->name("ShowUpdateForm");
+Route::put('/UpdateTodo', [TodosController::class,'UpdateTodo'])->name("UpdateTodo");
+
+
 
 
 

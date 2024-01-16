@@ -9,6 +9,16 @@
 </head>
 <body class="container">
     <h1 class="text-center mb-2 py-2">Todos Page</h1>
+
+    <a href={{ route('ShowFormulaire') }}>
+        <button>Add</button>
+    </a>
+    
+    @if(!empty($message))
+       <div class="alert alert-danger">
+            {{ $message }}
+       </div>
+    @endif
     <table class="table">
         <thead>
             <tr>
@@ -25,13 +35,15 @@
                 <td>{{ $val->title }}</td>
                 <td>{{ $val->description }}</td>
                 <td class="d-flex gap-2">
-                    <a href="#">
+                    <a href={{ route('findbyid',$val->id) }}>
                         <button class="btn btn-primary">View</button>
                     </a>
-                    <a href="#">
+                    <form action={{ route('deleteTodo',$val->id) }} method="post">
+                        @csrf
+                        @method('DELETE')
                         <button class="btn btn-danger">Delete</button>
-                    </a>
-                    <a href="#">
+                    </form>
+                    <a href={{ route('ShowUpdateForm',$val->id) }}>
                         <button class="btn btn-warning">Update</button>
                     </a>
                 </td>
