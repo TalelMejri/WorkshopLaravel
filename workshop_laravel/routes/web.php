@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 // Routes : POST,GET,PUT,DELETE
 
-Route::get('/', [TodosController::class,'welcome']);
+Route::get('/', [TodosController::class,'index']);
 
 
 

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class TodosController extends Controller
 {
-
-    public function welcome(){
-        return view("todos");
+    public function index(){
+        $todos=Todo::All();
+        return view("todos",["tab"=>$todos]);
     }
 
 }
