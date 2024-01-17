@@ -24,3 +24,4 @@ Route::get('/todos',[TodoApiController::class,'getTodo']);
 route::post('/addTodo',[TodoApiController::class,'addTodo']);
 route::delete('/deleteTodo/{id}',[TodoApiController::class,'deleteTodo']);
 Route::put('/UpdateTodo/{id}', [TodoApiController::class,'UpdateTodo']);
+Route::get('/getTodoById/{id}',[TodoApiController::class,'getTodoById']);

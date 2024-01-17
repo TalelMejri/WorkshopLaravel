@@ -46,4 +46,9 @@ class TodoApiController extends Controller
         return response()->json(["message"=>"UpDate terminé"],200);
     }
 
+    public function getTodoById($id){
+        $todo=Todo::find($id);
+        return response()->json(["data"=>$todo],200);
+    }
+
 }
