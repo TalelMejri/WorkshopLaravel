@@ -17,12 +17,10 @@ class TodoApiController extends Controller
         // $todo->title=$request->titre;
         // $todo->description=$request->description;
         // $todo->save();
-
         Todo::create([
             "title"=>$request->titre,
             "description"=>$request->description
         ]);
-
         return response()->json(["message"=>"todoAdded"],201);
     }
 
@@ -37,6 +35,15 @@ class TodoApiController extends Controller
             $todos->delete();
             return response()->json(["message"=>"todo deleted"],200);
         }
+    }
+
+    public function UpdateTodo(Request $request, $id){
+        $todo=Todo::find($id);
+        $todo->update([
+            "title"=>$request->titre,
+            "description"=>$request->description
+        ]);
+        return response()->json(["message"=>"UpDate terminé"],200);
     }
 
 }
