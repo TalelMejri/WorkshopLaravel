@@ -19,4 +19,9 @@ class Todo extends Model
         'description',
      ];
      */
+
+     public function user(){
+        $this->belongsTo(User::class);
+     }
+
 }
