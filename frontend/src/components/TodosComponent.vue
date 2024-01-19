@@ -2,6 +2,7 @@
     <div>
          <h1 class="text-center py-4 mt-2">Crud Todo</h1>
           <div class="container">
+
              <form @submit.prevent="AddTodo" class="shadow rounded p-2" v-if="edit==false">
                 <h3 class="text-center">ADD TODO</h3>
                 <div class="mb-2">
@@ -14,6 +15,7 @@
                     <button class="btn btn-primary">Add</button>
                 </div>
              </form>
+
              <form @submit.prevent="UpdateTodo" class="shadow rounded p-2"  v-else>
                 <h3 class="text-center">Update TODO</h3>
                 <div class="mb-2">
@@ -27,6 +29,7 @@
                     <button class="btn btn-secondary" @click="refresh()">annuler</button>
                 </div>
              </form>
+             
           </div>
           <div class="container mt-5">
              <table class="table table-bordered">
@@ -76,7 +79,7 @@ export default {
         refresh(){
             this.title="";
             this.description="";
-            this.idTodo="";
+            this.idTodo=null;
             this.edit=false;
         },
         ShowUpdate(id){
@@ -100,7 +103,8 @@ export default {
             })
         },
         UpdateTodo(){
-            todosService.UpdateTodo(this.idTodo,
+            todosService.UpdateTodo(
+                this.idTodo,
                 {
                     titre:this.title,
                     description:this.description
