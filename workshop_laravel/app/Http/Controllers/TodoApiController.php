@@ -13,10 +13,12 @@ class TodoApiController extends Controller
     }
 
     public function addTodo(Request $request){
+
         // $todo=new Todo();
         // $todo->title=$request->titre;
         // $todo->description=$request->description;
         // $todo->save();
+
         Todo::create([
             "title"=>$request->titre,
             "description"=>$request->description
@@ -39,11 +41,14 @@ class TodoApiController extends Controller
 
     public function UpdateTodo(Request $request, $id){
         $todo=Todo::find($id);
+        if($todo==null){
+            return response()->json(["message"=>"Todo Not Found"],404);
+        }
         $todo->update([
             "title"=>$request->titre,
             "description"=>$request->description
         ]);
-        return response()->json(["message"=>"UpDate terminé"],200);
+        return response()->json(["message"=>"Update Done"],200);
     }
 
     public function getTodoById($id){

@@ -2,7 +2,6 @@
     <div>
          <h1 class="text-center py-4 mt-2">Crud Todo</h1>
           <div class="container">
-
              <form @submit.prevent="AddTodo" class="shadow rounded p-2" v-if="edit==false">
                 <h3 class="text-center">ADD TODO</h3>
                 <div class="mb-2">
